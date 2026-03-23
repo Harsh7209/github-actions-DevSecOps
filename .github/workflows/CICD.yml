@@ -1,6 +1,6 @@
 name: CICD_workflow
 on:
-  workflow_dispatch:
+  workflow_dispatch: # means run the pipeline when click the button
 jobs:
   code:
     runs-on: ubuntu-latest
