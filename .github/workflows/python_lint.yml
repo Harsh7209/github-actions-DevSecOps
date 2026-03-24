@@ -5,9 +5,9 @@ on:
     branches: 
       - main
 
-job: 
+jobs: 
   code_check:
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
     strategy:
       fail-fast: false
       matrix: 
@@ -27,6 +27,7 @@ job:
 
       - name: running tests
         run: flake8 app.py
+        
            
 
 
