@@ -1,13 +1,11 @@
 name: python_lint
 
 on: 
-  push: 
-    branches: 
-      - main
+  workflow_dispatch: 
 
 jobs: 
   code_check:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix: 
