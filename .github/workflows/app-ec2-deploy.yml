@@ -6,9 +6,9 @@ on:
 jobs:
   deploy_on_ec2:
     runs-on: ubuntu-latest
-    env:
-      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
-      DOCKER_TAG: ${{ github.sha }}
+    # env:
+    #   DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+    #   DOCKER_TAG: ${{ github.sha }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -39,6 +39,7 @@ jobs:
 
             chmod +x docker-download.txt
             ./docker-download.txt
+            docker compose stop
+            docker compose rm -f
             docker compose pull
-            docker compose down
-            docker compose up -d
+            docker compose up -d --force-recreate
