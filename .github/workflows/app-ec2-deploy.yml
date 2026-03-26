@@ -29,10 +29,14 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          TAG: ${{ github.sha }}
           script: |
             export DOCKERHUB_USERNAME=${{secrets.DOCKERHUB_USERNAME}} 
             export TAG=${{secrets.github.sha}}
             echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+            echo  "login success"
             mkdir -p /home/ubuntu/app
             cp -r  /home/ubuntu/*  /home/ubuntu/app
             cd /home/ubuntu/app
