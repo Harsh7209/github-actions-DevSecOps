@@ -1,6 +1,6 @@
 # Create the README.md file with the provided content
 
-content = """# 🚀 Flask App - DevSecOps Implementation
+content =  # 🚀 Flask App - DevSecOps Implementation
 
 ## 📌 Project Overview
 
